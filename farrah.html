@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farrah Card</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great|Lovers+Quarrel");
+
+      body {
+        background-color: white;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        animation-name: beat-back;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+      }
+
+      .back {
+        display: none; /* Hide the content initially */
+        text-align: center;
+        position: relative;
+      }
+
+      .topic {
+        font-family: "Fredericka the Great", sans-serif;
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .content-1 {
+        font-family: "Lovers Quarrel", sans-serif;
+        font-size: 50px;
+        margin: 0;
+      }
+
+      .content-2 {
+        font-family: "Lovers Quarrel", sans-serif;
+        font-size: 40px;
+        margin: 20px 0;
+      }
+
+      .footer {
+        font-family: "Fredericka the Great", sans-serif;
+        font-size: 1.5rem;
+        margin-top: 20px;
+      }
+
+      .heart {
+        margin: 0 auto;
+        background-color: pink;
+        height: 100px;
+        width: 100px;
+        transform: rotate(-45deg);
+        animation-name: beat;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+      }
+
+      .heart:after {
+        background-color: pink;
+        content: "";
+        border-radius: 50%;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 0px;
+        left: 50px;
+      }
+
+      .heart:before {
+        background-color: pink;
+        content: "";
+        border-radius: 50%;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: -50px;
+        left: 0px;
+      }
+
+      .heart:hover {
+        background-color: #990000;
+        animation-duration: 200ms;
+        transform: scale(1.3) rotate(-45deg);
+      }
+
+      .heart:hover:before {
+        background-color: #990000;
+      }
+
+      .heart:hover:after {
+        background-color: #990000;
+      }
+
+      @keyframes beat {
+        0% {
+          transform: scale(1) rotate(-45deg);
+        }
+        50% {
+          transform: scale(0.8) rotate(-45deg);
+        }
+      }
+
+      @keyframes beat-back {
+        50% {
+          background: #ffe6f2;
+        }
+      }
+    </style>
+    <script>
+      // Wait until the page is loaded before checking the time
+      window.onload = function () {
+        const now = new Date();
+        const currentHour = now.getHours();
+
+        // Show the card if the current hour is 3 PM or later
+        if (currentHour >= 13) {
+          document.querySelector(".back").style.display = "block";
+        } else {
+          document.body.innerHTML =
+            '<p style="text-align: center; font-size: 1.2rem;">You cant see this part until the flowers are delivered!</p>';
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div class="back">
+      <h1 class="topic">To my dear Farrah!</h1>
+      <p class="content-1">
+        New floor, new bathroom, new paint… You’ve brought a fresh start into
+        your space! May these roses complement the wonderful job you’ve done and
+        add an extra touch of your amazing work.
+      </p>
+      <p class="content-2"></p>
+      <div class="heart"></div>
+      <p class="footer">written and designed with pleasure</p>
+    </div>
+  </body>
+</html>
